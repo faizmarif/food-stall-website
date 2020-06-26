@@ -1,0 +1,156 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <title>Index</title>
+<!-- 
+
+Timeless Template 
+
+http://www.templatemo.com/tm-517-timeless
+
+-->
+    <!-- load CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="{% static 'base/css/bootstrap.min.css' %}">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{% static 'base/css/templatemo-style.css' %}">
+    <!-- Templatemo style -->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <header class="text-center tm-site-header">
+                    <div class="tm-site-logo"></div>
+                    <h1 class="pl-4 tm-site-title">Faizan Biryani Stall</h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- <div class="tm-video-container">
+                    <video id="tm-welcome-video" class="tm-welcome-video" autoplay="" loop="" muted="">
+                        <source src="{% static 'base/videos/video.mp4' %}" type="video/mp4"> Your browser does not support the video tag.
+                        </video>
+                        <div id="tm-video-loader"></div>
+                        <div id="tm-video-text-overlay" class="tm-video-text-overlay d-none">
+                            <h1>
+                                <div id="rotate" class="tm-video-text">
+                                    <div>This is timeless</div>
+                                    <div>We are invincible</div>
+                                    <div>Quite unbeatable</div>
+                                    <div>and indestructible</div>
+                                </div>
+                            </h1>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="container tm-container-2">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="tm-welcome-text">Menu</h2>
+                </div>
+            </div>
+            <div class="row tm-section-mb">
+                <div class="col-lg-12">
+                  {% for food in food_list %}
+                    <div class="tm-timeline-item">
+                        <div class="tm-timeline-item-inner">
+                            <img src="/media/{{food.image}}" alt="Image" class="rounded-circle tm-img-timeline">
+                            <div class="tm-timeline-connector">
+                                <p class="mb-0">&nbsp;</p>
+                            </div>
+                            <div class="tm-timeline-description-wrap">
+                                <div class="tm-bg-dark tm-timeline-description">
+                                    <h3 class="tm-text-yellow tm-font-400">{{food.name}}</h3>
+                                    <p>{{food.descrip}}</p>
+
+                                    <p class="tm-text-yellow float-right mb-0" ><img src="https://img.icons8.com/material-sharp/20/000000/rupee.png"/>{{food.price}}/{{food.per}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="tm-timeline-connector-vertical"></div> -->
+                        <br><br><br>
+                    </div>
+                  {% endfor %}
+
+                </div>
+            </div>
+
+            <!--  row -->
+            <hr>
+            <div class="text-center">
+              <form action="{% url 'base:info' %}">
+              <button type="submit" class="btn btn-primary btn-lg">Order Now!</button>
+              </form>
+            </div>
+            <hr>
+
+            <div class="row tm-section-mt">
+                <div class="col-lg-6">
+                    <h3 class="mb-4 tm-text-gray">Our Location</h3>
+                    <!-- GOOGLE MAP -->
+                    <div id="google-map" class="text-center mb-5">
+                    <!-- How to change your own map point
+                           1. Go to Google Maps
+                           2. Click on your location point
+                           3. Click "Share" and choose "Embed map" tab
+                           4. Copy only URL and paste it within the src="" field below
+                       -->
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d905.8033891291392!2d84.37886882918053!3d24.75386599900653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQ1JzEzLjkiTiA4NMKwMjInNDUuOSJF!5e0!3m2!1sen!2sin!4v1592974202408!5m2!1sen!2sin" class="google-map-iframe" width="500" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                       
+                   </div>
+               </div>
+               <div class="col-lg-6 mb-5">
+                <h3 class="mb-4 tm-text-gray">Contact Us</h3>
+                
+                <p><img src="https://img.icons8.com/wired/20/000000/phone.png"/> &ensp; +91-9771570847</p>
+                
+                <p><img src="https://img.icons8.com/ios/20/000000/important-mail.png"/> &ensp; faizanforall@gmail.com</p>
+                
+                <p><img src="https://img.icons8.com/wired/20/000000/address.png"/> &ensp; Faizan Biryani Stall, Kalami Mohalla, Aurangabad, Bihar, India</p>
+            </div>
+        </div>
+        <hr>
+        <!-- Footer -->
+        <footer class="row mt-5 mb-5">
+            <div class="col-lg-12">
+                <p class="text-center tm-text-gray tm-copyright-text mb-0">Copyright &copy;
+                    <span class="tm-current-year">2018</span> Your Company Name 
+                    
+                    | Design: <a href="http://templatemo.com/tm-517-timeless" class="tm-text-white">Timeless</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+    <!-- .container -->
+
+    <script src="{% static 'base/js/jquery.min.js' %}"></script>
+    <!-- <script src="js/jquery-3.2.1.slim.min.js"></script> -->
+    <script src="{% static 'base/js/templatemo-script.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>
